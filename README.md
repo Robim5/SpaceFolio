@@ -2,6 +2,10 @@
 
 Personal portfolio built with React + Vite, with a space-themed visual identity and smooth interactions.
 
+## Live Demo
+
+Preview the project here: [https://robfolio-ten.vercel.app/](https://robfolio-ten.vercel.app/)
+
 ## Tech Stack
 
 - React 19
