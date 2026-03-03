@@ -1,0 +1,197 @@
+.experience {
+  background: transparent;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* visibility */
+.experience.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* title */
+.sectionTitle {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  color: var(--accent-teal);
+}
+
+/* timeline contaner */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* timeline vertical */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--accent-purple), var(--accent-teal), transparent);
+}
+
+/* individual item of timeline */
+.timelineItem {
+  position: relative;
+  margin-bottom: var(--space-xl);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* reveal modifier */
+.visible .timelineItem {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timelineItem:nth-child(odd) .timelineContent {
+  grid-column: 1;
+  text-align: right;
+}
+
+.timelineItem:nth-child(odd) .timelineIcon {
+  grid-column: 2;
+}
+
+.timelineItem:nth-child(even) .timelineContent {
+  grid-column: 3;
+  text-align: left;
+}
+
+.timelineItem:nth-child(even) .timelineIcon {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* icon */
+.timelineIcon {
+  width: 54px;
+  height: 54px;
+  background: var(--accent-purple);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  border: 3px solid var(--bg-dark);
+  box-shadow: var(--shadow-glow-purple);
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+/* content card */
+.timelineContent {
+  background: var(--bg-card-alpha);
+  padding: var(--space-lg);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timelineContent:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md), 0 0 15px rgba(163, 209, 204, 0.1);
+  border-color: var(--border-glow);
+}
+
+/* period */
+.period {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--accent-teal);
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.title {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  margin-bottom: var(--space-xs);
+  color: var(--text-light);
+  font-family: var(--font-body);
+}
+
+.company {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.location {
+  color: var(--text-muted);
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 26px;
+  }
+
+  .timelineItem {
+    grid-template-columns: auto 1fr;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .timelineItem:nth-child(odd) .timelineContent,
+  .timelineItem:nth-child(even) .timelineContent {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  .timelineItem:nth-child(odd) .timelineIcon,
+  .timelineItem:nth-child(even) .timelineIcon {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .timelineIcon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .timelineContent {
+    padding: var(--space-md);
+  }
+}
+
+@media (max-width: 400px) {
+  .timelineIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .timelineIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .timeline::before {
+    left: 20px;
+  }
+}

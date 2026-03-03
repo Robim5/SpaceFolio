@@ -1,0 +1,239 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 var(--space-xl);
+  transition: var(--transition-slow);
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 1.25rem 0;
+  transition: var(--transition);
+}
+
+/* glassmorphism on scroll */
+.header.scrolled {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.header.scrolled .headerInner {
+  padding: 0.85rem 0;
+}
+
+/* logo */
+.logo {
+  color: var(--text-light);
+  font-weight: 700;
+  font-size: 1.4rem;
+  font-family: var(--font-heading);
+  transition: var(--transition);
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 0.15em;
+}
+
+.logoSymbol {
+  color: var(--accent-teal);
+  font-family: 'Courier New', monospace;
+  font-weight: 400;
+}
+
+.logoAccent {
+  color: var(--accent-teal);
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 20px rgba(163, 209, 204, 0.4);
+}
+
+/* navigation */
+.nav {
+  display: flex;
+  gap: 2.25rem;
+}
+
+.nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.4rem 0;
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  transition: var(--transition);
+  letter-spacing: 0.01em;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-teal), transparent);
+  transition: width 0.35s ease;
+  border-radius: var(--radius-full);
+}
+
+.nav a:hover {
+  color: var(--accent-teal);
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* cta button */
+.cta {
+  background: transparent;
+  color: var(--accent-teal);
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1.5px solid var(--accent-teal);
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.cta:hover {
+  background: var(--accent-teal);
+  color: var(--bg-dark);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-glow-teal);
+}
+
+/* hamburger (mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1010;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text-light);
+  border-radius: var(--radius-full);
+  transition: var(--transition);
+  transform-origin: center;
+}
+
+.hamburgerOpen span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburgerOpen span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburgerOpen span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* overlay mobile */
+.overlay {
+  display: none;
+}
+
+/* responsive */
+@media (max-width: 968px) {
+  .header {
+    padding: 0 var(--space-lg);
+  }
+
+  /* hide CTA in header on mobile */
+  .cta {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    max-width: 320px;
+    height: 100vh;
+    flex-direction: column;
+    gap: 0;
+    padding: 5rem var(--space-lg) var(--space-lg);
+    background: rgba(10, 2, 14, 0.97);
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
+    border-left: 1px solid var(--glass-border);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1005;
+  }
+
+  .navOpen {
+    right: 0;
+  }
+
+  .nav a {
+    font-size: 1.15rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--glass-border);
+    width: 100%;
+  }
+
+  .nav a::after {
+    display: none;
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 2, 14, 0.6);
+    z-index: 1001;
+    animation: fadeIn 0.3s ease;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0 var(--space-md);
+  }
+
+  .logo {
+    font-size: 1.15rem;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

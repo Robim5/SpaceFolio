@@ -1,0 +1,56 @@
+:root {
+  /* color palette */
+  --bg-dark: #0A020E;
+  --bg-card: #311440;
+  --accent-purple: #572671;
+  --text-light: #F1EDF3;
+  --accent-teal: #A3D1CC;
+
+  /* derived colors */
+  --bg-card-alpha: rgba(49, 20, 64, 0.45);
+  --accent-purple-alpha: rgba(87, 38, 113, 0.35);
+  --accent-teal-alpha: rgba(163, 209, 204, 0.15);
+  --text-muted: rgba(241, 237, 243, 0.65);
+  --text-secondary: rgba(241, 237, 243, 0.8);
+  --border-subtle: rgba(87, 38, 113, 0.3);
+  --border-glow: rgba(163, 209, 204, 0.25);
+
+  /* glassmorphism */
+  --glass-bg: rgba(49, 20, 64, 0.25);
+  --glass-border: rgba(241, 237, 243, 0.08);
+  --glass-blur: 16px;
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+  /* shadows and depth */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.5);
+  --shadow-glow-teal: 0 0 20px rgba(163, 209, 204, 0.3);
+  --shadow-glow-purple: 0 0 30px rgba(87, 38, 113, 0.4);
+
+  /* layout */
+  --container-width: 1200px;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  /* borders */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* transitions */
+  --transition-fast: all 0.2s ease;
+  --transition: all 0.3s ease;
+  --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* typography */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Orbitron', 'Inter', sans-serif;
+}

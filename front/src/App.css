@@ -1,0 +1,13 @@
+#root {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+main {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1;
+}
