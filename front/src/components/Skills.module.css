@@ -320,6 +320,16 @@
     width: 46px;
     height: 46px;
   }
+
+  .category {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(49, 20, 64, 0.6);
+  }
+
+  .iconRing {
+    animation: none;
+  }
 }
 
 @media (max-width: 400px) {

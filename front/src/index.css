@@ -12,6 +12,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  background: #0A020E;
 }
 
 html,
@@ -21,13 +22,14 @@ body,
 }
 
 body {
-  background: transparent;
+  background: #0A020E;
   color: var(--text-light);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   overflow-x: hidden;
+  overscroll-behavior-y: none;
   line-height: 1.6;
 }
 
@@ -66,6 +68,7 @@ p {
 section {
   position: relative;
   padding: var(--space-2xl) 0;
+  contain: layout style;
 }
 
 /* text selection */
@@ -92,7 +95,7 @@ section {
   background: var(--accent-teal);
 }
 
-/* fade-in animation for sections */
+/* fade in animation for sections */
 @keyframes fadeInUp {
   from {
     transform: translateY(30px);

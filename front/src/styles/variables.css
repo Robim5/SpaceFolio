@@ -65,8 +65,10 @@
 
 @media (max-width: 768px) {
   :root {
-    --glass-blur: 6px;
-    --transition-slow: all 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    --glass-blur: 0px;
+    --transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-glow-teal: 0 0 8px rgba(163, 209, 204, 0.15);
+    --shadow-glow-purple: 0 0 12px rgba(87, 38, 113, 0.2);
   }
 }
 

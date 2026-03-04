@@ -605,11 +605,34 @@
     width: 44px;
     height: 44px;
     border-radius: 12px;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(49, 20, 64, 0.65);
   }
 
   .sectionIconWrap svg {
     width: 22px;
     height: 22px;
+  }
+
+  .card {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(49, 20, 64, 0.65);
+  }
+
+  .statusBadge,
+  .cardCategory {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .statusBadge {
+    background: rgba(49, 20, 64, 0.85);
+  }
+
+  .cardCategory {
+    background: rgba(49, 20, 64, 0.8);
   }
 }
 

@@ -157,6 +157,9 @@
 
   .textContent {
     padding: var(--space-lg);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(49, 20, 64, 0.65);
   }
 }
 

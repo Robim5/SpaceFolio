@@ -10,4 +10,5 @@ main {
   overflow-x: hidden;
   position: relative;
   z-index: 1;
+  contain: layout style;
 }

@@ -184,5 +184,8 @@
 
   .contact {
     padding: var(--space-xl) 0 var(--space-md);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(10, 2, 14, 0.8);
   }
 }

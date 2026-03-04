@@ -394,6 +394,15 @@
   .orbContainerLeft {
     display: none;
   }
+
+  .gradientBg {
+    bottom: 0;
+  }
+
+  .gradientBg::before,
+  .gradientBg::after {
+    display: none;
+  }
 }
 @keyframes floatOrb {
   0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -480,6 +489,26 @@
   .socialIcons {
     justify-content: center;
   }
+
+  .badge,
+  .socialIcon {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .badge {
+    background: rgba(49, 20, 64, 0.6);
+  }
+
+  .socialIcon {
+    background: rgba(49, 20, 64, 0.55);
+  }
+
+  .orbContainer .orb,
+  .orbRing,
+  .orbRing2 {
+    animation: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -500,5 +529,9 @@
   .orbContainer {
     width: 200px;
     height: 200px;
+  }
+
+  .orbGlow {
+    display: none;
   }
 }

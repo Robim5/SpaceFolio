@@ -8,6 +8,8 @@
     #0A020E;
   overflow: hidden;
   pointer-events: none;
+  contain: strict;
+  transform: translateZ(0);
 }
 
 .lite .nebula1,
@@ -15,6 +17,12 @@
 .lite .orb,
 .lite .starfield {
   animation: none;
+}
+
+.lite .twinkleSlow,
+.lite .twinkleMed,
+.lite .twinkleFast {
+  animation: twinkle 6s ease-in-out infinite;
 }
 
 .lite .nebula1,
@@ -72,6 +80,8 @@
   border-radius: 50%;
   will-change: transform;
   pointer-events: none;
+  contain: layout style;
+  transform: translateZ(0);
 }
 
 /* orb 1 big top right */
@@ -199,12 +209,14 @@
   position: absolute;
   inset: -10% 0;
   will-change: transform;
+  contain: layout style;
 }
 
 .star {
   position: absolute;
   border-radius: 50%;
   background: #F1EDF3;
+  contain: strict;
 }
 
 /* star twinkle animations */
@@ -436,10 +448,20 @@
   .lite .orb1,
   .lite .orb3,
   .lite .orb6 {
-    filter: blur(45px);
+    filter: blur(35px);
   }
 
   .lite .starfield {
     inset: 0;
+  }
+
+  .lite .twinkleSlow,
+  .lite .twinkleMed,
+  .lite .twinkleFast {
+    animation: none;
+  }
+
+  .spaceContainer {
+    contain: strict;
   }
 }

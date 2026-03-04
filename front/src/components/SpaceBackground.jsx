@@ -120,7 +120,7 @@ function DesktopBackground() {
 }
 
 function LiteBackground({ isPhone }) {
-  const stars = useMemo(() => generateStars(isPhone ? 42 : 72), [isPhone]);
+  const stars = useMemo(() => generateStars(isPhone ? 25 : 72), [isPhone]);
 
   return (
     <div className={`${styles.spaceContainer} ${styles.lite}`} aria-hidden="true">
