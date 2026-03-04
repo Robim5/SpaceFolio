@@ -117,6 +117,19 @@ const projects = [
         demo: '',
     },
     { // planned
+        id: 20,
+        title: 'PorteDex',
+        description:
+            'Pokemon based portfolio, where you can collect and show your projects, with a Pokedex style.',
+        image: '',
+        category: 'Frontend',
+        status: 'in-progress',
+        featured: null,
+        tags: ['---', '---', '---', '---'],
+        github: '',
+        demo: '',
+    },
+    { // planned
         id: 10,
         title: 'PassaTe',
         description:
