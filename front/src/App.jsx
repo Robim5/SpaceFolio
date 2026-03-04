@@ -5,6 +5,7 @@ import Home from './components/Home';
 import AllProjects from './components/AllProjects';
 import SpaceBackground from './components/SpaceBackground';
 import './App.css';
+import { Analytics } from '@vercel/analytics/react';
 
 function ScrollToHash() {
   const location = useLocation();
@@ -41,6 +42,7 @@ function App() {
           <Route path="/projects" element={<AllProjects />} />
         </Routes>
       </main>
+      <Analytics />
     </BrowserRouter>
   );
 }
