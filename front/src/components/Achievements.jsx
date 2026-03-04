@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import styles from './Achievements.module.css';
 import achievements from '@data/achievements';
+import usePerformanceMode from '../hooks/usePerformanceMode';
 
 // svg icon map
 const ICONS = {
@@ -88,12 +89,18 @@ export default function Achievements() {
     const animRef = useRef(null);
     const offsetRef = useRef(0);
     const speedRef = useRef({ current: NORMAL_SPEED, target: NORMAL_SPEED });
+    const { isPhone, isTablet, useLiteEffects, reduceMotion } = usePerformanceMode();
+    const useStaticTrack = isPhone || isTablet || useLiteEffects || reduceMotion;
 
     // duplicate items 3x
-    const items = [...achievements, ...achievements, ...achievements];
+    const items = useStaticTrack
+        ? achievements
+        : [...achievements, ...achievements, ...achievements];
 
     // loop ani
     useEffect(() => {
+        if (useStaticTrack) return;
+
         let lastTime = 0;
 
         const animate = (time) => {
@@ -124,7 +131,7 @@ export default function Achievements() {
         return () => {
             if (animRef.current) cancelAnimationFrame(animRef.current);
         };
-    }, []);
+    }, [useStaticTrack]);
 
     // speed handlers
     const handleMouseEnter = () => { speedRef.current.target = HOVER_SPEED; };
@@ -141,11 +148,11 @@ export default function Achievements() {
             <div className={styles.centerGlow} aria-hidden="true" />
 
             <div
-                className={styles.viewport}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                className={`${styles.viewport} ${useStaticTrack ? styles.viewportStatic : ''}`}
+                onMouseEnter={useStaticTrack ? undefined : handleMouseEnter}
+                onMouseLeave={useStaticTrack ? undefined : handleMouseLeave}
             >
-                <div ref={trackRef} className={styles.track}>
+                <div ref={trackRef} className={`${styles.track} ${useStaticTrack ? styles.trackStatic : ''}`}>
                     {items.map((a, i) => (
                         <div key={`${a.id}-${i}`} className={styles.card}>
                             <div className={styles.cardShimmer} aria-hidden="true" />

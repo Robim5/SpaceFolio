@@ -1,10 +1,25 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from './Hero.module.css';
+import usePerformanceMode from '../hooks/usePerformanceMode';
+
+function createAsteroidPoints(size, sides) {
+  const points = [];
+  for (let index = 0; index < sides; index++) {
+    const angle = (index / sides) * Math.PI * 2;
+    const radius = size * (0.72 + Math.random() * 0.28);
+    points.push({ x: Math.cos(angle) * radius, y: Math.sin(angle) * radius });
+  }
+  return points;
+}
 
 // hero section with animated canvas background and content
 export default function Hero() {
   const [visible, setVisible] = useState(false);
   const canvasRef = useRef(null);
+  const sectionRef = useRef(null);
+  const [isSectionInView, setIsSectionInView] = useState(true);
+  const { isPhone, isTablet, useLiteEffects } = usePerformanceMode();
+  const shouldDisableCanvas = isPhone || useLiteEffects;
 
   // content animation
   useEffect(() => {
@@ -12,44 +27,74 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const target = sectionRef.current;
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsSectionInView(entry.isIntersecting),
+      { threshold: 0.15 }
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
+
   // setup and animate floating particles on canvas
   useEffect(() => {
+    if (shouldDisableCanvas) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
     let animationId;
+    let isRunning = true;
     let particles = [];
     let sparkles = [];
 
+    const particleCount = isTablet ? 18 : 35;
+    const sparkleCount = isTablet ? 12 : 25;
+
     // resize canvas to match container
     const resize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const width = canvas.offsetWidth;
+      const height = canvas.offsetHeight;
+
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     resize();
     window.addEventListener('resize', resize);
 
     // initialize asteroid particles with random properties
-    for (let i = 0; i < 35; i++) {
+    for (let i = 0; i < particleCount; i++) {
+      const size = Math.random() * 4 + 1.5;
+      const sides = 5 + Math.floor(Math.random() * 3);
+
       particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 4 + 1.5,
+        x: Math.random() * canvas.offsetWidth,
+        y: Math.random() * canvas.offsetHeight,
+        size,
         speedX: (Math.random() - 0.5) * 0.6,
         speedY: Math.random() * 0.3 + 0.1,
         opacity: Math.random() * 0.6 + 0.2,
         rotation: Math.random() * Math.PI * 2,
         rotSpeed: (Math.random() - 0.5) * 0.02,
         hue: Math.random() > 0.5 ? 280 : 270,
+        points: createAsteroidPoints(size, sides),
       });
     }
 
     // initialize sparkle particles with pulse animation
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < sparkleCount; i++) {
       sparkles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
+        x: Math.random() * canvas.offsetWidth,
+        y: Math.random() * canvas.offsetHeight,
         size: Math.random() * 2.5 + 0.5,
         pulse: Math.random() * Math.PI * 2,
         pulseSpeed: Math.random() * 0.03 + 0.01,
@@ -59,7 +104,15 @@ export default function Hero() {
 
     // main animation loop for particles
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (!isRunning || document.hidden || !isSectionInView) {
+        animationId = requestAnimationFrame(animate);
+        return;
+      }
+
+      const width = canvas.offsetWidth;
+      const height = canvas.offsetHeight;
+
+      ctx.clearRect(0, 0, width, height);
 
       // draw and update asteroids
       particles.forEach((p) => {
@@ -68,12 +121,12 @@ export default function Hero() {
         p.rotation += p.rotSpeed;
 
         // wrap around screen edges
-        if (p.y > canvas.height + 10) {
+        if (p.y > height + 10) {
           p.y = -10;
-          p.x = Math.random() * canvas.width;
+          p.x = Math.random() * width;
         }
-        if (p.x < -10) p.x = canvas.width + 10;
-        if (p.x > canvas.width + 10) p.x = -10;
+        if (p.x < -10) p.x = width + 10;
+        if (p.x > width + 10) p.x = -10;
 
         ctx.save();
         ctx.translate(p.x, p.y);
@@ -82,12 +135,8 @@ export default function Hero() {
 
         // irregular asteroid shape
         ctx.beginPath();
-        const sides = 5 + Math.floor(Math.random() * 3);
-        for (let j = 0; j < sides; j++) {
-          const angle = (j / sides) * Math.PI * 2;
-          const r = p.size * (0.7 + Math.random() * 0.3);
-          const x = Math.cos(angle) * r;
-          const y = Math.sin(angle) * r;
+        for (let j = 0; j < p.points.length; j++) {
+          const { x, y } = p.points[j];
           if (j === 0) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
         }
@@ -135,18 +184,27 @@ export default function Hero() {
       animationId = requestAnimationFrame(animate);
     };
 
+    const onVisibilityChange = () => {
+      isRunning = !document.hidden;
+    };
+
+    document.addEventListener('visibilitychange', onVisibilityChange);
     animate();
 
     return () => {
+      isRunning = false;
       cancelAnimationFrame(animationId);
+      document.removeEventListener('visibilitychange', onVisibilityChange);
       window.removeEventListener('resize', resize);
     };
-  }, []);
+  }, [isSectionInView, isTablet, shouldDisableCanvas]);
 
   return (
-    <section id="start" className={styles.hero}>
+    <section id="start" className={styles.hero} ref={sectionRef}>
       {/* canvas for asteroids and sparkles */}
-      <canvas ref={canvasRef} className={styles.particleCanvas} aria-hidden="true" />
+      {!shouldDisableCanvas && (
+        <canvas ref={canvasRef} className={styles.particleCanvas} aria-hidden="true" />
+      )}
 
       {/* background gradient */}
       <div className={styles.gradientBg} aria-hidden="true" />

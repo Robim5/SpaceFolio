@@ -90,6 +90,29 @@
     align-items: center;
 }
 
+.viewportStatic {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 0.35rem;
+    cursor: default;
+}
+
+.viewportStatic::-webkit-scrollbar {
+    display: none;
+}
+
+.trackStatic {
+    width: 100%;
+    will-change: auto;
+    transform: none !important;
+    gap: 1rem;
+    padding: 0 0.5rem;
+}
+
+.trackStatic .card {
+    scroll-snap-align: start;
+}
+
 /* card for my achivements */
 .card {
     position: relative;
@@ -262,6 +285,10 @@
 
     .track {
         gap: 1.6rem;
+    }
+
+    .viewportStatic {
+        scroll-snap-type: x proximity;
     }
 
     .card {

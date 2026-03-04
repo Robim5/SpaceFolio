@@ -11,12 +11,24 @@ export default function Header() {
 
   // see scroll for header styling
   useEffect(() => {
+    let rafId = 0;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (rafId) return;
+
+      rafId = requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 50);
+        rafId = 0;
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   // no body scroll when mobile menu is open

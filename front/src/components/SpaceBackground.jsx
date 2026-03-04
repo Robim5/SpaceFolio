@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './SpaceBackground.module.css';
+import usePerformanceMode from '../hooks/usePerformanceMode';
 
 // generate deterministic star positions once
 function generateStars(count) {
@@ -26,7 +27,7 @@ function generateStars(count) {
 }
 
 // background with parallax orbs, starfield and shooting stars
-export default function SpaceBackground() {
+function DesktopBackground() {
   const { scrollYProgress } = useScroll();
 
   // orb 1
@@ -116,4 +117,47 @@ export default function SpaceBackground() {
       <div className={styles.miniOrb10} />
     </div>
   );
+}
+
+function LiteBackground({ isPhone }) {
+  const stars = useMemo(() => generateStars(isPhone ? 42 : 72), [isPhone]);
+
+  return (
+    <div className={`${styles.spaceContainer} ${styles.lite}`} aria-hidden="true">
+      <div className={styles.nebula1} />
+      <div className={styles.nebula2} />
+
+      <div className={`${styles.orb} ${styles.orb1}`} />
+      <div className={`${styles.orb} ${styles.orb3}`} />
+      <div className={`${styles.orb} ${styles.orb6}`} />
+
+      <div className={styles.starfield}>
+        {stars.map((s) => (
+          <span
+            key={s.id}
+            className={`${styles.star} ${s.twinkle ? styles[s.twinkle] : ''}`}
+            style={{
+              left: s.x,
+              top: s.y,
+              width: s.size,
+              height: s.size,
+              opacity: s.opacity,
+              animationDelay: s.delay,
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function SpaceBackground() {
+  const { isPhone, isTablet, useLiteEffects, reduceMotion } = usePerformanceMode();
+  const useLiteMode = isPhone || isTablet || useLiteEffects || reduceMotion;
+
+  if (useLiteMode) {
+    return <LiteBackground isPhone={isPhone} />;
+  }
+
+  return <DesktopBackground />;
 }
