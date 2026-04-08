@@ -355,6 +355,19 @@
   transform: scale(0.86);
 }
 
+.cardImageRounded {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardImageRounded .cardImage {
+  border-radius: 18px;
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+}
+
 .card:hover .cardImage {
   transform: scale(1.04);
   filter: brightness(1) drop-shadow(0 6px 20px rgba(0, 0, 0, 0.5));

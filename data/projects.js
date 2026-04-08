@@ -1,13 +1,27 @@
 const projects = [
     { // done
+        id: 21,
+        title: 'STCP_Core',
+        description:
+            'Core system for STCP bus network data, aggregating routes, stops and real-time information.',
+        image: '/assets/projects/done/stcpcore.png',
+        roundedImage: true,
+        category: 'API',
+        status: 'done',
+        featured: 1,
+        tags: ['Python', 'API', 'FastAPI', 'STCP', 'Data Processing', 'Backend'],
+        github: 'https://github.com/Robim5/STCPe_Core',
+        demo: '',
+    },
+    { // done
         id: 1,
         title: 'UmbraDex',
         description:
             'Android application that brings the Pokémon collecting experience to mobile devices.',
         image: '/assets/projects/done/umbradex.png',
+        roundedImage: false,
         category: 'Full Stack',
         status: 'done',
-        featured: 1,
         tags: ['Kotlin', 'Android Studio', 'Supabase', 'Pokemon API'],
         github: 'https://github.com/Robim5/UmbraDex',
         demo: '',
@@ -18,6 +32,7 @@ const projects = [
         description:
             'A site to motivate people to be productive, integrating AI for creative missions every day.',
         image: '/assets/projects/done/umbraflow.png',
+        roundedImage: false,
         category: 'Full Stack',
         status: 'done',
         featured: 2,
@@ -31,6 +46,7 @@ const projects = [
         description:
             'Personal portfolio website with a space theme, parallax effects, and smooth animations.',
         image: '/assets/logo.svg',
+        roundedImage: false,
         category: 'Frontend',
         status: 'done',
         featured: 3,
@@ -44,6 +60,7 @@ const projects = [
         description:
             'A library management in .NET, with a clean and intuitive interface, and the ability to add books, authors, and categories.',
         image: '/assets/projects/done/biblio.png',
+        roundedImage: false,
         category: 'Full Stack',
         status: 'done',
         featured: null,
@@ -57,6 +74,7 @@ const projects = [
         description:
             'A project made to the secondary school, an anime tracker using C#, .NET, SQL, etc.',
         image: '/assets/projects/done/celestial.png',
+        roundedImage: true,
         category: 'Full Stack',
         status: 'done',
         featured: null,
@@ -70,6 +88,7 @@ const projects = [
         description:
             'An animation of a life in heaven, day and night, with a dreamy aesthetic, inspired by the Greek mythology.',
         image: '/assets/projects/done/dream.png',
+        roundedImage: true,
         category: 'Frontend',
         status: 'done',
         featured: null,
@@ -78,11 +97,26 @@ const projects = [
         demo: '',
     },
     { // in-progress
+        id: 22,
+        title: 'LocaTe',
+        description:
+            'Location-based app that helps users about the time of arrival of the public transport. Including real-time data, notifications and route planning. (STCP and Metro of Porto)',
+        image: '/assets/projects/going/locate.png',
+        roundedImage: true,
+        category: 'Android',
+        status: 'in-progress',
+        featured: null,
+        tags: ['Flutter', 'Dart', 'API', 'Mobility', 'STCP', 'Metro'],
+        github: '',
+        demo: '',
+    },
+    { // in-progress
         id: 7,
         title: 'ProjSta',
         description:
             'Cross-platform mobile application for task management with push notifications.',
         image: '/assets/projects/done/projsta.png',
+        roundedImage: false,
         category: 'Frontend',
         status: 'in-progress',
         featured: null,
@@ -92,27 +126,29 @@ const projects = [
     },
     { // in-progress
         id: 8,
-        title: 'MaiaPPoint - Landing Page',
+        title: 'MaiaPPoint - BillBoard Digital',
         description:
             'A landing page for MaiaPPoint, a video to inspire people to visit Maia, no interactions, automatic video playing in loop.',
-        image: '',
+        image: '/assets/projects/going/maiappointbill.png',
+        roundedImage: false,
         category: 'Full Stack',
         status: 'in-progress',
         featured: null,
-        tags: ['React', 'Node.js', 'Tailwind CSS', 'API Integration', 'Video'],
+        tags: ['TypeScript', 'Node.js', 'CSS', 'API Integration', 'Video'],
         github: '',
         demo: '',
     },
     { // in-progress
         id: 9,
-        title: 'MaiaPPoint - WebSite',
+        title: 'MaiaPPoint',
         description:
-            'An website for MaiaPPoint, a project to promote tourism in Maia, with information about the city, points of interest, events, etc...',
-        image: '',
+            'A remake of Maia official website, a project to promote tourism in Maia, with information about the city, points of interest, events, etc...',
+        image: '/assets/projects/going/maiappoint.png',
+        roundedImage: false,
         category: 'Frontend',
         status: 'in-progress',
         featured: null,
-        tags: ['React', 'Node.js', 'Python', 'API Integration', 'Multi-Theme'],
+        tags: ['React', 'Node.js', 'Municipality', 'API Integration', 'Multi-Theme'],
         github: '',
         demo: '',
     },
@@ -121,9 +157,38 @@ const projects = [
         title: 'PorteDex',
         description:
             'Pokemon based portfolio, where you can collect and show your projects, with a Pokedex style.',
-        image: '',
+        image: '/assets/placeholder.gif',
+        roundedImage: false,
         category: 'Frontend',
         status: 'in-progress',
+        featured: null,
+        tags: ['---', '---', '---', '---'],
+        github: '',
+        demo: '',
+    },
+    { // planned
+        id: 23,
+        title: 'Ímos',
+        description:
+            'Remake of the Maia mobile app.',
+        image: '',
+        roundedImage: false,
+        category: 'Full Stack',
+        status: 'planned',
+        featured: null,
+        tags: ['---', '---', '---', '---'],
+        github: '',
+        demo: '',
+    },
+    { // planned
+        id: 24,
+        title: 'Maiaticos',
+        description:
+            'Community platform celebrating local culture and events in Maia.',
+        image: '',
+        roundedImage: false,
+        category: 'Full Stack',
+        status: 'planned',
         featured: null,
         tags: ['---', '---', '---', '---'],
         github: '',
@@ -135,6 +200,7 @@ const projects = [
         description:
             'Gamified app that encourages users to be more active by giving tasks and challenges based on their activity level and preferences.',
         image: '',
+        roundedImage: false,
         category: 'Full Stack',
         status: 'planned',
         featured: null,
@@ -148,6 +214,7 @@ const projects = [
         description:
             'A Tower Defense game where players use cards to defend themselves against waves of enemies.',
         image: '',
+        roundedImage: false,
         category: 'Game Development',
         status: 'planned',
         featured: null,
@@ -161,6 +228,7 @@ const projects = [
         description:
             'A cozy 2d game where you can live a peaceful life, exploring the world, farming, etc... but be aware.',
         image: '',
+        roundedImage: false,
         category: 'Game Development',
         status: 'planned',
         featured: null,
@@ -174,6 +242,7 @@ const projects = [
         description:
             'Keep writing on the rythm of the music, try to not lose the beat.',
         image: '',
+        roundedImage: false,
         category: 'Game Development',
         status: 'planned',
         featured: null,
@@ -187,6 +256,7 @@ const projects = [
         description:
             'Online store focusing on a everything nerds need to be happy, trust me, it will be amazing.',
         image: '',
+        roundedImage: false,
         category: 'Full Stack',
         status: 'planned',
         featured: null,
@@ -200,6 +270,7 @@ const projects = [
         description:
             'A tracker for moments when people ask "What series do you want to watch?" and you have no idea, giving suggestions based on your preferences and mood.',
         image: '',
+        roundedImage: false,
         category: 'Full Stack',
         status: 'planned',
         featured: null,
@@ -213,6 +284,7 @@ const projects = [
         description:
             'Don\'t know where to share your recommendations? Here! Don\'t know what to watch? Here! Don\'t know what to read? Here!',
         image: '',
+        roundedImage: false,
         category: 'Full Stack',
         status: 'planned',
         featured: null,
@@ -226,6 +298,7 @@ const projects = [
         description:
             'A Pokemon app to track your collection, with a Pokedex, a checklist and teams, we assure you will have a lot more motivation now.',
         image: '',
+        roundedImage: false,
         category: 'Mobile',
         status: 'planned',
         featured: null,
@@ -239,6 +312,7 @@ const projects = [
         description:
             'Does your animal feel lonely? Here, get a friend, or maybe a lover.',
         image: '',
+        roundedImage: false,
         category: 'mobile',
         status: 'planned',
         featured: null,
@@ -252,6 +326,7 @@ const projects = [
         description:
             'Me and you, let\'s learn langues together, wont be fun?',
         image: '',
+        roundedImage: false,
         category: 'Mobile',
         status: 'planned',
         featured: null,

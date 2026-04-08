@@ -50,11 +50,12 @@ const SECTIONS = [
 // projects card reused
 function ProjectCard({ project, statusCfg }) {
   const imageSrc = getProjectImage(project);
-  const isPlaceholder = imageSrc.includes('/assets/placeholders/');
+  const isPlaceholder = imageSrc === '/assets/placeholder.gif';
+  const isRounded = project.roundedImage === true;
 
   return (
     <article className={styles.card}>
-      <div className={styles.cardImageWrap}>
+      <div className={`${styles.cardImageWrap} ${isRounded ? styles.cardImageRounded : ''}`}>
         <img src={imageSrc} alt="" aria-hidden="true"
           className={styles.cardImageBg} loading="lazy" draggable={false} />
         <img src={imageSrc} alt={project.title}

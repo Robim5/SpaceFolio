@@ -121,7 +121,8 @@ export default function Projects() {
         >
           {projects.map((project, index) => {
             const imageSrc = getProjectImage(project);
-            const isPlaceholder = imageSrc.includes('/assets/placeholders/');
+            const isPlaceholder = imageSrc === '/assets/placeholder.gif';
+            const isRounded = project.roundedImage === true;
 
             return (
             <article
@@ -129,7 +130,7 @@ export default function Projects() {
               className={`${styles.card} ${isVisible ? styles.cardVisible : ''}`}
               style={{ transitionDelay: `${index * 0.12}s` }}
             >
-              <div className={styles.cardImageWrap}>
+              <div className={`${styles.cardImageWrap} ${isRounded ? styles.cardImageRounded : ''}`}>
                 <img src={imageSrc} alt="" aria-hidden="true"
                   className={styles.cardImageBg} loading="lazy" />
                 <img src={imageSrc} alt={project.title}

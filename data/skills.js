@@ -9,6 +9,7 @@ const skills = [
             { name: 'PHP', abbr: 'PHP' },
             { name: 'Python', abbr: 'PY' },
             { name: 'C#', abbr: 'C#' },
+            { name: 'Dart', abbr: 'Dt' },
         ],
     },
     {
@@ -19,6 +20,7 @@ const skills = [
             { name: 'Node.js', abbr: 'Nd' },
             { name: 'Tailwind CSS', abbr: 'TW' },
             { name: 'Bootstrap', abbr: 'Bs' },
+            { name: 'Flutter', abbr: 'Fl' },
         ],
     },
     {
@@ -63,9 +65,7 @@ const skills = [
             {
                 label: 'Game Engines',
                 skills: [
-                    { name: 'Unity', abbr: 'Un' },
                     { name: 'Godot', abbr: 'Go' },
-                    { name: 'Unreal Engine', abbr: 'UE' },
                 ],
             },
             {
