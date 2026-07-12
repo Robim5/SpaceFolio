@@ -1,6 +1,6 @@
 const projects = [
-    { // done
-        id: 21,
+    { // done stcp core
+        id: 1,
         title: 'STCP_Core',
         description:
             'Core system for STCP bus network data, aggregating routes, stops and real-time information.',
@@ -8,13 +8,83 @@ const projects = [
         roundedImage: true,
         category: 'API',
         status: 'done',
-        featured: 1,
+        featured: 3,
         tags: ['Python', 'API', 'FastAPI', 'STCP', 'Data Processing', 'Backend'],
         github: 'https://github.com/Robim5/STCPe_Core',
         demo: '',
     },
-    { // done
-        id: 1,
+    { // done MaiaPPoint - BillBoard Digital
+        id: 2,
+        title: 'MaiaPPoint - BillBoard Digital',
+        description:
+            'A BillBoard digital for MaiaPPoint, a video to inspire people to visit Maia, no interactions, automatic video playing in loop.',
+        image: '/assets/projects/going/maiappointbill.png',
+        roundedImage: false,
+        category: 'Full Stack',
+        status: 'done',
+        featured: 1,
+        tags: ['JavaScript', 'Node.js', 'CSS', 'API Integration', 'Video'],
+        github: 'https://github.com/Robim5/MaiaPPoint_LandingPage',
+        demo: 'https://maiappoint-lp.vercel.app/',
+    },
+    { // done MaiaPPoint - Website
+        id: 3,
+        title: 'MaiaPPoint',
+        description:
+            'A remake of Maia official website, a project to promote tourism in Maia, with information about the city, points of interest, events, etc...',
+        image: '/assets/projects/going/maiappoint.png',
+        roundedImage: false,
+        category: 'Full Stack',
+        status: 'done',
+        featured: 2,
+        tags: ['React', 'Node.js', 'Municipality', 'API Integration', 'Multi-Theme'],
+        github: 'https://github.com/Robim5/MaiaPPoint',
+        demo: 'https://maia-p-point.vercel.app/',
+    },
+    { // done MetroPorTi
+        id: 4,
+        title: 'MetroPorTi',
+        description:
+            'An API to manage metro schedules and show them perfectly using Metro GTFS.',
+        image: '/assets/projects/done/metroporti.png',
+        roundedImage: false,
+        category: 'Full Stack',
+        status: 'done',
+        featured: null,
+        tags: ['Python', 'API', 'Requests', 'MySQL', 'Metro GTFS'],
+        github: 'https://github.com/Robim5/MetroPorTi',
+        demo: '',
+    },
+    { // done WebbyMaia
+        id: 5,
+        title: 'WebbyMaia',
+        description:
+            'MicroService to extract events and news of the city of Maia, Portugal, and save them in a database, to be used in other projects.',
+        image: '/assets/projects/done/webby.png',
+        roundedImage: false,
+        category: 'Full Stack',
+        status: 'done',
+        featured: null,
+        tags: ['Python', 'BeautifulSoup', 'Requests', 'MySQL', 'Web Scraping'],
+        github: 'https://github.com/Robim5/WebbyMaia',
+        demo: '',
+    },
+    { // done MaiaEmCarneiro
+        id: 6,
+        title: 'MaiaEmCarneiro',
+        description:
+            'MicroService to extract flies in the airport of maia (Sá Carneiro) and save them in a database.',
+        image: '/assets/projects/done/maiaemcarneiro.png',
+        roundedImage: false,
+        category: 'Full Stack',
+        status: 'done',
+        featured: null,
+        tags: ['Python', 'API', 'Requests', 'MySQL', 'Flight Data'],
+        github: 'https://github.com/Robim5/MaiaEmCarneiro',
+        demo: '',
+    },
+    { // done umbradex
+        id: 7,
         title: 'UmbraDex',
         description:
             'Android application that brings the Pokémon collecting experience to mobile devices.',
@@ -26,8 +96,8 @@ const projects = [
         github: 'https://github.com/Robim5/UmbraDex',
         demo: '',
     },
-    { // done
-        id: 2,
+    { // done umbraflow
+        id: 8,
         title: 'UmbraFlow',
         description:
             'A site to motivate people to be productive, integrating AI for creative missions every day.',
@@ -35,13 +105,13 @@ const projects = [
         roundedImage: false,
         category: 'Full Stack',
         status: 'done',
-        featured: 2,
+        featured: null,
         tags: ['React', 'JavaScript', 'Firebase', 'IA', 'Google'],
         github: 'https://github.com/TheMrThinker/UmbraFlow-2.0',
         demo: '',
     },
-    { // done
-        id: 3,
+    { // done spacefolio
+        id: 9,
         title: 'SpaceFolio',
         description:
             'Personal portfolio website with a space theme, parallax effects, and smooth animations.',
@@ -49,13 +119,13 @@ const projects = [
         roundedImage: false,
         category: 'Frontend',
         status: 'done',
-        featured: 3,
+        featured: null,
         tags: ['React', 'Vite', 'Framer Motion', 'CSS Modules'],
         github: 'https://github.com/Robim5/SpaceFolio',
         demo: '',
     },
-    { // done
-        id: 4,
+    { // done biblio
+        id: 10,
         title: 'Biblio',
         description:
             'A library management in .NET, with a clean and intuitive interface, and the ability to add books, authors, and categories.',
@@ -68,8 +138,8 @@ const projects = [
         github: 'https://github.com/Robim5/Biblio',
         demo: '',
     },
-    { // done
-        id: 5,
+    { // done celestial realm
+        id: 11,
         title: 'Celestial Realm',
         description:
             'A project made to the secondary school, an anime tracker using C#, .NET, SQL, etc.',
@@ -82,8 +152,8 @@ const projects = [
         github: 'https://github.com/Robim5/Celestial-Realm',
         demo: '',
     },
-    { // done
-        id: 6,
+    { // done dreams: divinities
+        id: 12,
         title: 'Dreams: Divinities',
         description:
             'An animation of a life in heaven, day and night, with a dreamy aesthetic, inspired by the Greek mythology.',
@@ -96,8 +166,8 @@ const projects = [
         github: 'https://github.com/Robim5/Dreams-Divinities',
         demo: '',
     },
-    { // in-progress
-        id: 22,
+    { // in-progress LocaTe
+        id: 13,
         title: 'LocaTe',
         description:
             'Location-based app that helps users about the time of arrival of the public transport. Including real-time data, notifications and route planning. (STCP and Metro of Porto)',
@@ -110,8 +180,8 @@ const projects = [
         github: '',
         demo: '',
     },
-    { // in-progress
-        id: 7,
+    { // in-progress ProjSta
+        id: 14,
         title: 'ProjSta',
         description:
             'Cross-platform mobile application for task management with push notifications.',
@@ -124,36 +194,8 @@ const projects = [
         github: 'https://github.com/Robim5/ProjSta',
         demo: '',
     },
-    { // in-progress
-        id: 8,
-        title: 'MaiaPPoint - BillBoard Digital',
-        description:
-            'A landing page for MaiaPPoint, a video to inspire people to visit Maia, no interactions, automatic video playing in loop.',
-        image: '/assets/projects/going/maiappointbill.png',
-        roundedImage: false,
-        category: 'Full Stack',
-        status: 'in-progress',
-        featured: null,
-        tags: ['TypeScript', 'Node.js', 'CSS', 'API Integration', 'Video'],
-        github: '',
-        demo: '',
-    },
-    { // in-progress
-        id: 9,
-        title: 'MaiaPPoint',
-        description:
-            'A remake of Maia official website, a project to promote tourism in Maia, with information about the city, points of interest, events, etc...',
-        image: '/assets/projects/going/maiappoint.png',
-        roundedImage: false,
-        category: 'Frontend',
-        status: 'in-progress',
-        featured: null,
-        tags: ['React', 'Node.js', 'Municipality', 'API Integration', 'Multi-Theme'],
-        github: '',
-        demo: '',
-    },
-    { // planned
-        id: 20,
+    { // in-progress PorteDex
+        id: 15,
         title: 'PorteDex',
         description:
             'Pokemon based portfolio, where you can collect and show your projects, with a Pokedex style.',
@@ -167,35 +209,35 @@ const projects = [
         demo: '',
     },
     { // planned
-        id: 23,
-        title: 'Ímos',
+        id: 16,
+        title: 'AppGuise',
         description:
-            'Remake of the Maia mobile app.',
+            'A privacy app that disguises itself as a normal gallery or messaging app, hiding other apps behind a secure code. Perfect for keeping sensitive apps private and secure.',
         image: '',
         roundedImage: false,
-        category: 'Full Stack',
+        category: 'Mobile',
         status: 'planned',
         featured: null,
-        tags: ['---', '---', '---', '---'],
+        tags: ['Flutter', 'Dart', 'Privacy', 'Security', 'Mobile'],
         github: '',
         demo: '',
     },
     { // planned
-        id: 24,
-        title: 'Maiaticos',
+        id: 17,
+        title: 'CatDex',
         description:
-            'Community platform celebrating local culture and events in Maia.',
+            'A street cat Pokedex app for finding and cataloging different cats in your area. Collect, track, and share your cat discoveries with the community.',
         image: '',
         roundedImage: false,
-        category: 'Full Stack',
+        category: 'Mobile',
         status: 'planned',
         featured: null,
-        tags: ['---', '---', '---', '---'],
+        tags: ['---', '---', '---', 'Cats', 'Mobile'],
         github: '',
         demo: '',
     },
     { // planned
-        id: 10,
+        id: 18,
         title: 'PassaTe',
         description:
             'Gamified app that encourages users to be more active by giving tasks and challenges based on their activity level and preferences.',
@@ -209,7 +251,7 @@ const projects = [
         demo: '',
     },
     { // planned
-        id: 11,
+        id: 19,
         title: 'CTDefense',
         description:
             'A Tower Defense game where players use cards to defend themselves against waves of enemies.',
@@ -223,7 +265,7 @@ const projects = [
         demo: '',
     },
     { // planned
-        id: 12,
+        id: 20,
         title: 'SouLifing',
         description:
             'A cozy 2d game where you can live a peaceful life, exploring the world, farming, etc... but be aware.',
@@ -237,7 +279,7 @@ const projects = [
         demo: '',
     },
     { // planned
-        id: 13,
+        id: 21,
         title: 'Wrirrior',
         description:
             'Keep writing on the rythm of the music, try to not lose the beat.',
@@ -251,7 +293,7 @@ const projects = [
         demo: '',
     },
     { // planned
-        id: 14,
+        id: 22,
         title: 'LojiFy',
         description:
             'Online store focusing on a everything nerds need to be happy, trust me, it will be amazing.',
@@ -265,7 +307,7 @@ const projects = [
         demo: '',
     },
     { // planned
-        id: 15,
+        id: 23,
         title: 'WhatISee',
         description:
             'A tracker for moments when people ask "What series do you want to watch?" and you have no idea, giving suggestions based on your preferences and mood.',
@@ -279,7 +321,7 @@ const projects = [
         demo: '',
     },
     { // planned
-        id: 16,
+        id: 24,
         title: 'RecoHere',
         description:
             'Don\'t know where to share your recommendations? Here! Don\'t know what to watch? Here! Don\'t know what to read? Here!',
@@ -293,7 +335,7 @@ const projects = [
         demo: '',
     },
     { // planned
-        id: 17,
+        id: 25,
         title: 'MyDexer',
         description:
             'A Pokemon app to track your collection, with a Pokedex, a checklist and teams, we assure you will have a lot more motivation now.',
@@ -307,7 +349,7 @@ const projects = [
         demo: '',
     },
     { // planned
-        id: 18,
+        id: 26,
         title: 'PetEr',
         description:
             'Does your animal feel lonely? Here, get a friend, or maybe a lover.',
@@ -321,7 +363,7 @@ const projects = [
         demo: '',
     },
     { // planned
-        id: 19,
+        id: 27,
         title: 'RobGe',
         description:
             'Me and you, let\'s learn langues together, wont be fun?',
